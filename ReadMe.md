@@ -22,10 +22,11 @@ All actions are aligned with **Data Privacy Vocabulary (DPV 2.2)** and **ODRL 2.
 ## Roles (Ontology Alignment)
 
 | Role | DPV Term | Notes / Usage |
-|------|-----------|------------|---------------|
+|------|-----------|---------------|
 | **Data Provider** | `dpv:DataSource`, `dpv:DataController` | Publishes official energy consumption records. |
-| **Data Analyst** | `dpv:DataProcessor` | Executes the Python workflow to clean data and compute emissions. |
-| **Researcher / Policy User** | `dpv:DataUser`, `dpv:Recipient` | Reviews and interprets the derived trends for sustainability insights. |
+| **Data Analyst** | `dpv:DataProcessor` | Executes the Python workflow to clean data and compute CO₂ emissions. |
+| **Researcher / Policy User** | `dpv:DataUser`, `dpv:Recipient` | Reviews and interprets derived results for sustainability and energy policy insights. |
+
 
 ---
 
