@@ -1,4 +1,4 @@
-# 📘 Data Specification — Scenario 3  
+# Data Specification — Scenario 3  
 ## Analysis of Electricity Consumption & Estimation of Indirect CO₂ Emissions in Thessaloniki (1993–2012)  
 (Ανάλυση Ηλεκτρικής Κατανάλωσης & Υπολογισμός Έμμεσων Εκπομπών CO₂ στη Θεσσαλονίκη, 1993–2012)
 
