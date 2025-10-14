@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 # --- Διαδρομές Αρχείων ---
-excel_path = Path("energy_consumtion_thessaloniki_1993-2012.xlsx")
-output_excel = Path("thess_energy_analysis.xlsx")
-output_emissions_chart = Path("o2_emissions_per_category.png")
-output_energy_chart = Path("energy_consumption_per_category.png")
+excel_path = Path("Data/energy_consumption_thessaloniki_1993_2012.xlsx")
+output_excel = Path("output/thess_energy_analysis.xlsx")
+output_emissions_chart = Path("output/co2_emissions_per_category.png")
+output_energy_chart = Path("output/energy_consumption_per_category.png")
 
 # --- Διαβάζουμε το αρχείο (skiprows=1 για να πηδήξουμε την πρώτη γραμμή τίτλου) ---
 df = pd.read_excel(excel_path, skiprows=1)
