@@ -1,4 +1,4 @@
-# 🧩 MDAT Scenario 3 — Energy Consumption & CO₂ Emissions (1993–2012, Thessaloniki)
+# MDAT Scenario 3 — Energy Consumption & CO₂ Emissions (1993–2012, Thessaloniki)
 
 This scenario processes open statistical data on electricity consumption in Thessaloniki (1993–2012)  
 to calculate annual CO₂ emissions by usage category.  
