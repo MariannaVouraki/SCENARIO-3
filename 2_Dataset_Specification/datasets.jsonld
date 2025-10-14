@@ -1,0 +1,39 @@
+{
+  "@context": {
+    "dct": "http://purl.org/dc/terms/",
+    "dpv": "https://w3id.org/dpv/dpv#",
+    "mdat": "http://example.org/mdat#"
+  },
+  "@graph": [
+    {
+      "@id": "mdat:Dataset_EnergyConsumption_Thessaloniki_1993_2012",
+      "@type": "dpv:Dataset",
+      "dct:title": "Κατανάλωση ηλεκτρικής ενέργειας κατά κατηγορία χρήσης στη Θεσσαλονίκη (1993–2012)",
+      "dct:description": "Historical electricity consumption data (kWh) for Thessaloniki by usage category (Domestic, Commercial, Industrial, Agricultural, Public, Lighting) for the years 1993–2012. Used for estimating indirect CO₂ emissions.",
+      "dct:format": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "dct:source": "https://tds.okfn.gr/dataset/energy-consumption-thessaloniki-1993-2012",
+      "dct:temporal": "1993–2012",
+      "dct:spatial": "Regional Unit of Thessaloniki",
+      "dpv:hasCategory": ["dpv:EnvironmentalData", "dpv:StatisticalData"],
+      "dpv:hasSensitivity": "dpv:NonPersonalData",
+      "mdat:domainConcepts": ["mdat:EnergyDataset", "mdat:CO2EmissionDataset"],
+      "mdat:keyProperties": [
+        "Region",
+        "Year",
+        "Domestic",
+        "Commercial",
+        "Industrial",
+        "Agricultural",
+        "Public",
+        "Lighting",
+        "Total"
+      ],
+      "mdat:derivedOutputs": [
+        "thess_energy_analysis.xlsx",
+        "co2_emissions_per_category.png",
+        "energy_consumption_per_category.png"
+      ],
+      "mdat:emissionFactor": "0.267 kg CO₂/kWh (2024 – Greece grid mix, Nowtricity)"
+    }
+  ]
+}
