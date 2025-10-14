@@ -66,7 +66,7 @@ All actions are aligned with **Data Privacy Vocabulary (DPV 2.2)** and **ODRL 2.
 
 ---
 
-## requirements.txt
-pandas==2.2.2
-matplotlib==3.9.2
-openpyxl==3.1.5
+## requirements
+pandas=2.2.2
+matplotlib=3.9.2
+openpyxl=3.1.5
