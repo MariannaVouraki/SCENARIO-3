@@ -1,46 +1,44 @@
-## Scenario 3: Ανάλυση Ηλεκτρικής Κατανάλωσης & Υπολογισμός Έμμεσων Εκπομπών CO₂ στη Θεσσαλονίκη (1993–2012)
+# ⚙️ Scenario 3 — Energy Consumption & CO₂ Emissions in Thessaloniki (1993–2012)
 
-## Περιγραφή Σεναρίου
-Αυτό το σενάριο στοχεύει στην ανάλυση της ηλεκτρικής κατανάλωσης στο Νομό Θεσσαλονίκης ανά κατηγορία χρήσης για την περίοδο 1993–2012 και την εκτίμηση των έμμεσων εκπομπών CO₂ που σχετίζονται με αυτή την κατανάλωση.
+## 🧩 Scenario Description
 
-## Dataset που χρησιμοποιήθηκε
-- **Τίτλος:** Κατανάλωση ηλεκτρικής ενέργειας, κατά γεωγραφική περιοχή και κατηγορία χρήσης: 1993–2012
-- **Πηγή:** [TDS – OKF Greece](https://tds.okfn.gr/dataset/108)
-- **Μορφή:** `.xlsx`  
-- **Δεδομένα:** kWh ανά έτος και κατηγορία χρήσης στη Θεσσαλονίκη
+**Title:** Energy Consumption & CO₂ Emissions — Thessaloniki (1993–2012)  
+**Objective:** Analyze the evolution of electricity consumption by category and estimate indirect CO₂ emissions using Greece’s average grid emission factor (256 g CO₂/kWh).  
+**Data Source:** `energy_consumption_thessaloniki_1993-2012.xlsx`  
+**Coverage:** Thessaloniki Regional Unit (Years 1993 – 2012)  
+**Emission Factor Source:** Nowtricity (2023)  
+**Outputs:**  
+- `output/thess_energy_analysis.xlsx`  
+- `output/co2_emissions_per_category.png`  
+- `output/energy_consumption_per_category.png`
 
-## Κατηγορίες χρήσης
-- Οικιακή χρήση
-- Εμπορική χρήση
-- Βιομηχανική χρήση
-- Γεωργική χρήση
-- Δημόσιες & Δημοτικές Αρχές
-- Φωτισμός οδών
+---
 
-## Βήματα Υλοποίησης (Python Script)
-1. **Φόρτωση Excel και ανάγνωση δεδομένων.**
-2. **Καθαρισμός δεδομένων και μετατροπή σε κατάλληλη μορφή (`float`).**
-3. **Υπολογισμός εκπομπών CO₂ με βάση συντελεστή εκπομπών:**
-   - `CO₂ = Consumption (kWh) * Emission Factor (kg/kWh)`
-   - Χρησιμοποιήθηκε συντελεστής **0.267 kg CO₂/kWh** σύμφωνα με στοιχεία του 2024 για το ελληνικό δίκτυο (πηγή παρακάτω).
-4. **Προσθήκη νέων στηλών ανά κατηγορία με υπολογισμένες εκπομπές.**
-5. **Εξαγωγή σε αρχείο Excel (`thess_energy_analysis.xlsx`).**
-6. **Δημιουργία γραφημάτων:**
-   - Κατανάλωση ενέργειας ανά κατηγορία στον χρόνο (`energy_consumption_per_category.png`)
-   - Εκπομπές CO₂ ανά κατηγορία στον χρόνο (`co2_emissions_per_category.png`)
+## 👥 Roles (Ontology Alignment)
 
-## Γραφήματα
-- `energy_consumption_per_category.png`: Εξέλιξη της κατανάλωσης ανά κατηγορία χρήσης.
-- `co2_emissions_per_category.png`: Εκτιμώμενες έμμεσες εκπομπές CO₂ ανά κατηγορία χρήσης.
+| Role | Description | DPV Term | ODRL Term | Proposed Custom Term (`mdat:`) | Notes |
+|------|--------------|----------|------------|--------------------------------|-------|
+| **Data Provider** | Entity supplying the regional energy dataset. | `dpv:DataController` / `dpv:DataSource` | — | `mdat:EnergyProvider` | e.g. ΔΕΔΔΗΕ, ΕΛΣΤΑΤ |
+| **Data Analyst** | Person or process that cleans, computes, and visualizes the data. | `dpv:DataProcessor` | — | `mdat:EnergyAnalyst` | Implements analysis workflow |
+| **Researcher / Policy User** | Uses derived results for environmental and energy policy decisions. | `dpv:DataUser` / `dpv:Recipient` | — | `mdat:PolicyResearcher` | Accesses aggregated results only |
+| **MDAT Platform** | Manages access, metadata, and sharing policies. | `dpv:DataController` / `dpv:AccessControlMethod` | `odrl:policy` | `mdat:PlatformService` | Ensures DPV/ODRL compliance |
 
-## Συντελεστής Εκπομπών CO₂
-- **Τιμή:** `0.267 kg CO₂ / kWh`
-- Εναλλακτικά:
-  - 253.6 g CO₂/kWh για το 2019 (EEA)
-  - 256 g CO₂/kWh για το 2023 [Nowtricity](https://www.nowtricity.com/country/greece/)
+---
 
-## Παραδοτέα
-- `thess_energy_analysis.xlsx`: Αναλυτικός πίνακας με κατανάλωση και εκπομπές CO₂ ανά έτος.
-- `energy_consumption_per_category.png`: Κατανάλωση ενέργειας.
-- `co2_emissions_per_category.png`: Εκπομπές CO₂.
+## 🔁 Workflow (Mapped to DPV & ODRL)
 
+| Element (Process–Action) / Description | DPV Term | ODRL Term | Proposed Custom Term (`mdat:`) | Notes / Usage |
+|----------------------------------------|-----------|------------|--------------------------------|----------------|
+| **1. Load energy dataset (1993–2012)** – import Excel file for Thessaloniki | `dpv:Collect` | `odrl:use` | `mdat:LoadEnergyData` | Base data ingestion |
+| **2. Normalize and clean columns** – harmonize names and units | `dpv:Transform`, `dpv:Clean`, `dpv:Standardise` | `odrl:modify` | `mdat:NormalizeEnergyData` | Ensures consistency across years |
+| **3. Filter by Thessaloniki region** – select relevant rows | `dpv:Transform` | `odrl:use` | `mdat:ExtractRegionSubset` | Regional focus step |
+| **4. Calculate CO₂ emissions per category** – apply emission factor (256 g CO₂/kWh) | `dpv:Derive`, `dpv:Calculate` | `odrl:derive` | `mdat:CalculateCO2Emissions` | Produces derived environmental indicator |
+| **5. Store enriched dataset (energy + CO₂)** – export Excel with computed values | `dpv:Store`, `dpv:Record` | `odrl:reproduce` | `mdat:StoreDerivedDataset` | Persist for reuse |
+| **6. Generate charts (energy & emissions)** – visualize trends per category | `dpv:Visualise`, `dpv:Analyse` | `odrl:present`, `odrl:analyze` | `mdat:GenerateEnergyCharts` | Output PNG files |
+| **7. Share or publish results** – provide aggregated outputs via MDAT | `dpv:Disclose`, `dpv:Share` | `odrl:distribute` | `mdat:PublishEnergyIndicators` | For research and policy use |
+
+---
+
+## 📘 Ontological Consistency Notes
+
+- All **DPV terms** are verified against **DPV 2.2** (W3C Data Privacy Vocabulary
