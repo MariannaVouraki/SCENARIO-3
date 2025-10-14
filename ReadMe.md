@@ -35,10 +35,10 @@ All actions are aligned with **Data Privacy Vocabulary (DPV 2.2)** and **ODRL 2.
 | Element (process – action) / Description | DPV Term | ODRL Term | Proposed Custom Term (`mdat:`) |
 |------------------------------------------|-----------|------------|--------------------------------|
 | Load Excel dataset | `dpv:Collect`, `dpv:Access` | `odrl:use` | — |
-| Rename and normalize column schema | `dpv:Transform`, `dpv:Standardise` | `odrl:modify` | — |
-| Filter regional subset (Θεσσαλονίκης) | `dpv:Filter`, `dpv:Select` | `odrl:use` | — |
-| Clean temporal and numeric fields | `dpv:Clean`, `dpv:Transform` | `odrl:modify` | — |
-| Calculate CO₂ emissions (apply emission factor) | `dpv:Derive`, `dpv:Calculate`, `dpv:EmissionData` | `odrl:derive` | `mdat:ComputeCO2Emissions` |
+| Rename and normalize column schema | `dpv:Transform` | `odrl:modify` | — |
+| Filter regional subset (Θεσσαλονίκης) |`dpv:Select` | `odrl:use` | — |
+| Clean temporal and numeric fields | `dpv:Transform` | `odrl:modify` | — |
+| Calculate CO₂ emissions (apply emission factor) | `dpv:Derive`, `dpv:Calculate` | `odrl:derive` | `mdat:ComputeCO2Emissions` |
 | Export enriched dataset (energy + emissions) | `dpv:Store`, `dpv:DerivedData` | `odrl:reproduce` | — |
 | Generate emission and energy charts | `dpv:Visualise`, `dpv:Analyse` | `odrl:display`, `odrl:reproduce` | `mdat:GenerateEmissionVisuals` |
 | Share analytical outputs (Excel + PNG) | `dpv:Disclose`, `dpv:Share`, `dpv:DerivedData` | `odrl:distribute` | — |
