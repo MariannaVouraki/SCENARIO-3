@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 # --- Διαδρομές Αρχείων ---
-excel_path = Path("Data/energy_consumption_thessaloniki_1993_2012.xlsx")
+excel_path = Path("Data/energy_consumption_thessaloniki_1993-2012.xlsx")
 output_excel = Path("output/thess_energy_analysis.xlsx")
 output_emissions_chart = Path("output/co2_emissions_per_category.png")
 output_energy_chart = Path("output/energy_consumption_per_category.png")
