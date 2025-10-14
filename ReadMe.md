@@ -29,20 +29,18 @@ All actions are aligned with **Data Privacy Vocabulary (DPV 2.2)** and **ODRL 2.
 
 ---
 
-## Workflow (Mapped to DPV & ODRL)
+## ⚙️ Workflow (Mapped to DPV & ODRL)
 
 | Element (process – action) / Description | DPV Term | ODRL Term | Proposed Custom Term (`mdat:`) |
 |------------------------------------------|-----------|------------|--------------------------------|
-| Read Excel file and load historical data | `dpv:Collect`, `dpv:Access` | `odrl:use` | `mdat:LoadEnergyDataset` |
-| Rename columns and normalize schema | `dpv:Transform`, `dpv:Standardise` | `odrl:modify` | `mdat:NormalizeEnergySchema` |
-| Filter regional subset (Θεσσαλονίκης) | `dpv:Select`, `dpv:Filter` | `odrl:use` | `mdat:SelectRegionalSubset` |
-| Convert year field and remove incomplete rows | `dpv:Clean`, `dpv:Transform` | `odrl:modify` | `mdat:CleanTemporalRecords` |
-| Apply emission factor (256 g CO₂/kWh) and derive CO₂ columns | `dpv:Derive`, `dpv:Calculate`, `dpv:EmissionData` | `odrl:derive` | `mdat:ComputeCO2FromEnergy` |
-| Export enriched dataset (energy + emissions) to Excel | `dpv:Store`, `dpv:DerivedData` | `odrl:reproduce` | `mdat:ExportDerivedDataset` |
-| Plot CO₂ emissions per category over time | `dpv:Visualise`, `dpv:Analyse` | `odrl:display`, `odrl:reproduce` | `mdat:PlotEmissionTrends` |
-| Plot energy consumption per category over time | `dpv:Visualise`, `dpv:Analyse` | `odrl:display`, `odrl:reproduce` | `mdat:PlotEnergyConsumption` |
-| Save charts as PNG files for reports | `dpv:Store`, `dpv:VisualisationData` | `odrl:reproduce` | `mdat:SaveVisualOutputs` |
-| Share visual outputs and Excel results openly | `dpv:Disclose`, `dpv:Share`, `dpv:DerivedData` | `odrl:distribute` | `mdat:PublishEmissionIndicators` |
+| Load Excel dataset | `dpv:Collect`, `dpv:Access` | `odrl:use` | — |
+| Rename and normalize column schema | `dpv:Transform`, `dpv:Standardise` | `odrl:modify` | — |
+| Filter regional subset (Θεσσαλονίκης) | `dpv:Filter`, `dpv:Select` | `odrl:use` | — |
+| Clean temporal and numeric fields | `dpv:Clean`, `dpv:Transform` | `odrl:modify` | — |
+| Calculate CO₂ emissions (apply emission factor) | `dpv:Derive`, `dpv:Calculate`, `dpv:EmissionData` | `odrl:derive` | `mdat:ComputeCO2Emissions` |
+| Export enriched dataset (energy + emissions) | `dpv:Store`, `dpv:DerivedData` | `odrl:reproduce` | — |
+| Generate emission and energy charts | `dpv:Visualise`, `dpv:Analyse` | `odrl:display`, `odrl:reproduce` | `mdat:GenerateEmissionVisuals` |
+| Share analytical outputs (Excel + PNG) | `dpv:Disclose`, `dpv:Share`, `dpv:DerivedData` | `odrl:distribute` | — |
 
 ---
 
