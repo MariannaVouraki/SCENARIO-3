@@ -37,7 +37,7 @@
 - **Τιμή:** `0.267 kg CO₂ / kWh`
 - Εναλλακτικά:
   - 253.6 g CO₂/kWh για το 2019 (EEA)
-  - 256 g CO₂/kWh για το 2023 (Nowtricity)
+  - 256 g CO₂/kWh για το 2023 [Nowtricity](https://www.nowtricity.com/country/greece/)
 
 ## Παραδοτέα
 - `thess_energy_analysis.xlsx`: Αναλυτικός πίνακας με κατανάλωση και εκπομπές CO₂ ανά έτος.
