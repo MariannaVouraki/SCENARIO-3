@@ -17,7 +17,7 @@
 - Δημόσιες & Δημοτικές Αρχές
 - Φωτισμός οδών
 
-## ⚙️ Βήματα Υλοποίησης (Python Script)
+## Βήματα Υλοποίησης (Python Script)
 1. **Φόρτωση Excel και ανάγνωση δεδομένων.**
 2. **Καθαρισμός δεδομένων και μετατροπή σε κατάλληλη μορφή (`float`).**
 3. **Υπολογισμός εκπομπών CO₂ με βάση συντελεστή εκπομπών:**
@@ -29,18 +29,18 @@
    - Κατανάλωση ενέργειας ανά κατηγορία στον χρόνο (`energy_consumption_per_category.png`)
    - Εκπομπές CO₂ ανά κατηγορία στον χρόνο (`co2_emissions_per_category.png`)
 
-## 📈 Γραφήματα
+## Γραφήματα
 - `energy_consumption_per_category.png`: Εξέλιξη της κατανάλωσης ανά κατηγορία χρήσης.
 - `co2_emissions_per_category.png`: Εκτιμώμενες έμμεσες εκπομπές CO₂ ανά κατηγορία χρήσης.
 
-## 🧮 Συντελεστής Εκπομπών CO₂
+## Συντελεστής Εκπομπών CO₂
 - **Τιμή:** `0.267 kg CO₂ / kWh`
 - **Πηγή:** [Agora Energiewende & Ember – Greece 2024](https://www.agora-energiewende.de/en/)
 - Εναλλακτικά:
   - 253.6 g CO₂/kWh για το 2019 (EEA)
   - 256 g CO₂/kWh για το 2023 (Nowtricity)
 
-## 📌 Παραδοτέα
+## Παραδοτέα
 - `thess_energy_analysis.xlsx`: Αναλυτικός πίνακας με κατανάλωση και εκπομπές CO₂ ανά έτος.
 - `energy_consumption_per_category.png`: Κατανάλωση ενέργειας.
 - `co2_emissions_per_category.png`: Εκπομπές CO₂.
