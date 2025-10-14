@@ -30,7 +30,7 @@ All actions are aligned with **Data Privacy Vocabulary (DPV 2.2)** and **ODRL 2.
 
 ---
 
-## ⚙️ Workflow (Mapped to DPV & ODRL)
+## Workflow (Mapped to DPV & ODRL)
 
 | Element (process – action) / Description | DPV Term | ODRL Term | Proposed Custom Term (`mdat:`) |
 |------------------------------------------|-----------|------------|--------------------------------|
