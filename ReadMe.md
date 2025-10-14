@@ -35,7 +35,6 @@
 
 ## Συντελεστής Εκπομπών CO₂
 - **Τιμή:** `0.267 kg CO₂ / kWh`
-- **Πηγή:** [Agora Energiewende & Ember – Greece 2024](https://www.agora-energiewende.de/en/)
 - Εναλλακτικά:
   - 253.6 g CO₂/kWh για το 2019 (EEA)
   - 256 g CO₂/kWh για το 2023 (Nowtricity)
