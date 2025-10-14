@@ -14,7 +14,7 @@
       "dct:source": "https://tds.okfn.gr/dataset/energy-consumption-thessaloniki-1993-2012",
       "dct:temporal": "1993–2012",
       "dct:spatial": "Regional Unit of Thessaloniki",
-      "dpv:hasCategory": ["dpv:EnvironmentalData", "dpv:StatisticalData"],
+      "dpv:hasCategory": ["dpv:EnvironmentalData"],
       "dpv:hasSensitivity": "dpv:NonPersonalData",
       "mdat:domainConcepts": ["mdat:EnergyDataset", "mdat:CO2EmissionDataset"],
       "mdat:keyProperties": [

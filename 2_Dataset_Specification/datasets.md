@@ -55,7 +55,7 @@ Excel (.xlsx)
 - `energy_consumption_per_category.png` – γραφική απεικόνιση κατανάλωσης ενέργειας.  
 
 **Data Category (DPV):**  
-`dpv:EnvironmentalData`, `dpv:StatisticalData`
+`dpv:EnvironmentalData`
 
 **Sensitivity:**  
 `dpv:NonPersonalData`

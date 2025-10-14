@@ -34,9 +34,7 @@
 - `co2_emissions_per_category.png`: Εκτιμώμενες έμμεσες εκπομπές CO₂ ανά κατηγορία χρήσης.
 
 ## Συντελεστής Εκπομπών CO₂
-- **Τιμή:** `0.267 kg CO₂ / kWh`
-- Εναλλακτικά:
-  - 253.6 g CO₂/kWh για το 2019 (EEA)
+- **Τιμή:** `0.256 kg CO₂ / kWh`
   - 256 g CO₂/kWh για το 2023 [Nowtricity](https://www.nowtricity.com/country/greece/)
 
 ## Παραδοτέα
