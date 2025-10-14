@@ -1,19 +1,20 @@
-# MDAT Scenario 3 — Energy Consumption & CO₂ Emissions in Thessaloniki (1993 – 2012)
+# 🧩 MDAT Scenario 3 — Energy Consumption & CO₂ Emissions (1993–2012, Thessaloniki)
 
-This scenario calculates energy consumption trends and resulting CO₂ emissions per usage category in the Regional Unit of Thessaloniki (1993–2012).  
-It reuses ontological alignment patterns from **Scenario 1 (Urban Green)** and **Scenario 2 (Air Quality & Population Exposure)** to ensure interoperability and policy traceability.
+This scenario processes open statistical data on electricity consumption in Thessaloniki (1993–2012)  
+to calculate annual CO₂ emissions by usage category.  
+All actions are aligned with **Data Privacy Vocabulary (DPV 2.2)** and **ODRL 2.2**, and are extended with custom MDAT terms to describe specific analytical steps.
 
 ---
 
-## Scenario Description
+## Scenario Overview
 
 | Element | Description |
 |----------|--------------|
-| **Dataset Source** | `energy_consumption_thessaloniki_1993-2012.xlsx` |
-| **Geographic Coverage** | Thessaloniki Regional Unit |
+| **Script** | `energy_emissions_thessaloniki.py` |
+| **Input Dataset** | `energy_consumption_thessaloniki_1993-2012.xlsx` |
 | **Temporal Coverage** | 1993 – 2012 |
-| **Purpose** | Quantify and visualize electricity consumption and corresponding CO₂ emissions by category |
-| **Emission Factor** | 256 g CO₂eq / kWh (2023 Nowtricity – Greece grid mix) |
+| **Geographic Scope** | Thessaloniki Regional Unit |
+| **Emission Factor Source** | 256 g CO₂/kWh — Nowtricity (2023) |
 | **Outputs** | `thess_energy_analysis.xlsx`, `co2_emissions_per_category.png`, `energy_consumption_per_category.png` |
 
 ---
@@ -21,45 +22,48 @@ It reuses ontological alignment patterns from **Scenario 1 (Urban Green)** and *
 ## Roles (Ontology Alignment)
 
 | Role | DPV Term | ODRL Term | Notes / Usage |
-|------|-----------|------------|----------------|
-| **Data Provider** | `dpv:DataSource`, `dpv:DataController` | — | Provides historical energy consumption data. |
-| **Data Analyst** | `dpv:DataProcessor` | — | Performs data cleaning, transformation, and CO₂ derivation. |
-| **Researcher / Policy User** | `dpv:Recipient`, `dpv:DataUser` | — | Uses analytical outputs for energy and climate policy decisions. |
+|------|-----------|------------|---------------|
+| **Data Provider** | `dpv:DataSource`, `dpv:DataController` | — | Publishes official energy consumption records. |
+| **Data Analyst** | `dpv:DataProcessor` | — | Executes the Python workflow to clean data and compute emissions. |
+| **Researcher / Policy User** | `dpv:DataUser`, `dpv:Recipient` | — | Reviews and interprets the derived trends for sustainability insights. |
 
 ---
 
 ## Workflow (Mapped to DPV & ODRL)
 
 | Element (process – action) / Description | DPV Term | ODRL Term | Proposed Custom Term (`mdat:`) |
-|------------------------------------------|-----------|-------------|--------------------------------|
-| Negotiate and authorize dataset use | `dpv:Access`, `dpv:AuthorisationProcedure`, `dpv:NegotiateContract` | *(policy-level)* | `mdat:NegotiatedAccessPolicy` |
-| Load energy consumption dataset | `dpv:Collect`, `dpv:Access` | `odrl:use` | — |
-| Normalize and clean records (Region, Year, Category) | `dpv:Transform`, `dpv:Clean`, `dpv:Standardise` | `odrl:derive` | — |
-| Compute CO₂ emissions per category (apply emission factor) | `dpv:Derive`, `dpv:Aggregate`, `dpv:Calculate` | `odrl:derive` | `mdat:CalculateEmissionIndicator` |
-| Store derived dataset (energy + CO₂) | `dpv:Store`, `dpv:DerivedData` | `odrl:reproduce` | — |
-| Generate visualisations (emissions & energy by category) | `dpv:Visualise`, `dpv:Analyse`, `dpv:Use` | `odrl:display`, `odrl:reproduce` | `mdat:GenerateEmissionCharts` |
-| Interpret and evaluate energy trends & emission patterns | `dpv:Assess`, `dpv:Analyse` | `odrl:analyze`, `odrl:present` | `mdat:EnergyEmissionAssessment` |
-| Share derived graphs and summary indicators (open outputs) | `dpv:Disclose`, `dpv:Share`, `dpv:DerivedData` | `odrl:distribute` | — |
+|------------------------------------------|-----------|------------|--------------------------------|
+| Read Excel file and load historical data | `dpv:Collect`, `dpv:Access` | `odrl:use` | `mdat:LoadEnergyDataset` |
+| Rename columns and normalize schema | `dpv:Transform`, `dpv:Standardise` | `odrl:modify` | `mdat:NormalizeEnergySchema` |
+| Filter regional subset (Θεσσαλονίκης) | `dpv:Select`, `dpv:Filter` | `odrl:use` | `mdat:SelectRegionalSubset` |
+| Convert year field and remove incomplete rows | `dpv:Clean`, `dpv:Transform` | `odrl:modify` | `mdat:CleanTemporalRecords` |
+| Apply emission factor (256 g CO₂/kWh) and derive CO₂ columns | `dpv:Derive`, `dpv:Calculate`, `dpv:EmissionData` | `odrl:derive` | `mdat:ComputeCO2FromEnergy` |
+| Export enriched dataset (energy + emissions) to Excel | `dpv:Store`, `dpv:DerivedData` | `odrl:reproduce` | `mdat:ExportDerivedDataset` |
+| Plot CO₂ emissions per category over time | `dpv:Visualise`, `dpv:Analyse` | `odrl:display`, `odrl:reproduce` | `mdat:PlotEmissionTrends` |
+| Plot energy consumption per category over time | `dpv:Visualise`, `dpv:Analyse` | `odrl:display`, `odrl:reproduce` | `mdat:PlotEnergyConsumption` |
+| Save charts as PNG files for reports | `dpv:Store`, `dpv:VisualisationData` | `odrl:reproduce` | `mdat:SaveVisualOutputs` |
+| Share visual outputs and Excel results openly | `dpv:Disclose`, `dpv:Share`, `dpv:DerivedData` | `odrl:distribute` | `mdat:PublishEmissionIndicators` |
 
 ---
 
 ## Data Types and Vocabularies
 
 | Data Type | DPV Term | Proposed Custom Term (`mdat:`) | Notes |
-|------------|-----------|-------------------------------|-------|
-| Energy consumption dataset | `dpv:EnvironmentalData`, `dpv:StatisticalData` | `mdat:EnergyDataset` | Electricity use (kWh) by sector and year |
-| Emission indicator dataset | `dpv:DerivedData`, `dpv:EmissionData` | `mdat:CO2EmissionDataset` | CO₂ kg values computed from energy use |
-| Visual outputs (plots & charts) | `dpv:VisualisationData` | `mdat:EmissionVisualisation` | PNG graphs for reports and dashboards |
+|------------|-----------|--------------------------------|-------|
+| Energy consumption dataset | `dpv:EnvironmentalData`, `dpv:StatisticalData` | `mdat:EnergyDataset` | Annual kWh by usage category. |
+| Emission derivation output | `dpv:DerivedData`, `dpv:EmissionData` | `mdat:CO2EmissionDataset` | Computed CO₂ (kg) values per sector and year. |
+| Visualisation files (charts) | `dpv:VisualisationData` | `mdat:EnergyEmissionVisualisation` | PNG graphs generated by Matplotlib. |
+| Analytical script | `dpv:ProcessingActivity`, `dpv:Algorithm` | `mdat:EnergyEmissionScript` | Python workflow used for processing. |
 
 ---
 
 ## Ontological Consistency Notes
 
-- All DPV terms verified against **DPV 2.2** (core and extension modules).  
-- ODRL actions refer to the **ODRL Core Vocabulary (2.2)**.  
-- Energy and CO₂ derivation reuses the semantic pattern of Scenario 2’s `mdat:CalculateMeanPollutant`.  
-- Visualisation and assessment reuse `dpv:Visualise`, `dpv:Analyse` and `odrl:present` from Scenario 1 for alignment.  
-- Ensures semantic interoperability and policy traceability within the MDAT data space framework.
+- DPV terms validated against **DPV 2.2 Core + Processing Extension**.  
+- ODRL actions drawn from **ODRL 2.2 Core Model**.  
+- Each computational step represents a semantically distinct `dpv:Process` instance.  
+- Custom MDAT terms introduced for precise analytical actions (`mdat:ComputeCO2FromEnergy`, `mdat:PlotEmissionTrends`, etc.).  
+- Designed to ensure interoperability with other MDAT environmental and energy scenarios.
 
 ---
 
