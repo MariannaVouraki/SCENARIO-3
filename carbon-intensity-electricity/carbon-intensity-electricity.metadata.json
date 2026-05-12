@@ -1,0 +1,44 @@
+{
+  "chart": {
+    "title": "Lifecycle carbon intensity of electricity",
+    "subtitle": "Measured in grams of carbon dioxide-equivalents emitted per kilowatt-hour of electricity generated. Emissions are estimated on a lifecycle basis, including upstream, supply chain and manufacturing stages, and cover all greenhouse gases.",
+    "citation": "Ember (2026)",
+    "originalChartUrl": "https://ourworldindata.org/grapher/carbon-intensity-electricity?v=1&csvType=full&useColumnShortNames=false",
+    "selection": []
+  },
+  "columns": {
+    "Lifecycle carbon intensity of electricity - gCO2/kWh": {
+      "titleShort": "Lifecycle carbon intensity of electricity generation",
+      "titleLong": "Lifecycle carbon intensity of electricity generation - Ember",
+      "descriptionShort": "Greenhouse gases emitted per unit of generated electricity, measured in grams of CO₂ equivalents per kilowatt-hour.",
+      "descriptionProcessing": "- Electricity data from 2000 onwards (and from 1990 onwards for European countries, including Turkey) comes from Ember. Earlier data comes from the Energy Institute.",
+      "shortUnit": "gCO₂",
+      "unit": "grams of CO₂ equivalents per kilowatt-hour",
+      "timespan": "1990-2025",
+      "type": "Numeric",
+      "owidVariableId": 1227966,
+      "shortName": "co2_intensity__gco2_kwh",
+      "lastUpdated": "2026-04-24",
+      "nextUpdate": "2027-04-24",
+      "citationShort": "Ember (2026) – with major processing by Our World in Data",
+      "citationLong": "Ember (2026) – with major processing by Our World in Data. “Lifecycle carbon intensity of electricity generation – Ember” [dataset]. Ember, “Yearly Electricity Data Europe”; Ember, “Yearly Electricity Data” [original data].",
+      "fullMetadata": "https://api.ourworldindata.org/v1/indicators/1227966.metadata.json"
+    },
+    "World region according to OWID": {
+      "titleShort": "World region according to OWID",
+      "titleLong": "World region according to OWID",
+      "descriptionShort": "Regions defined by Our World in Data, which are used in OWID charts and maps.",
+      "unit": "",
+      "timespan": "2023-2023",
+      "type": "Continent",
+      "owidVariableId": 900801,
+      "shortName": "owid_region",
+      "lastUpdated": "2023-01-01",
+      "citationShort": "Our World in Data – processed by Our World in Data",
+      "citationLong": "Our World in Data – processed by Our World in Data. “World region according to OWID” [dataset]. Our World in Data, “Regions” [original data].",
+      "fullMetadata": "https://api.ourworldindata.org/v1/indicators/900801.metadata.json"
+    }
+  },
+  "dateDownloaded": "2026-05-12",
+  "activeFilters": {}
+}
